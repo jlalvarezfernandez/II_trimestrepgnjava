@@ -1,114 +1,131 @@
 package circulo;
-import javax.swing.*;
+
+
+ import javax.swing.JOptionPane;
+
 
 
 
   /**
-   * Crea la clase “Circulo” en Java que responda al siguiente comportamiento:
-   *  Un círculo puede crecer. Aumenta su radio.
-   *  Un círculo puede menguar. Decrementa su radio.
-   *  Un círculo me devuelve su área si se la pido.
-   *  Un círculo me dice su estado, por ejemplo “Soy un círculo de radio 0.5 metros. Ocupo un área de 0.7853981633974483 metros cuadrados” (método toString())
-   * @author antonio
+   * 2. Crea la clase “Circulo” en Java que responda al siguiente comportamiento:
+
+                Un círculo puede crecer. Aumenta su radio.
+                Un círculo puede menguar. Decrementa su radio.
+                Un círculo me devuelve su área si se la pido.
+                Un círculo me dice su estado, por ejemplo “Soy un círculo de radio 0.5 metros. 
+                Ocupo un área de 0.7853981633974483 metros cuadrados” (método toString())
+                
+                
+  3. Crea una clase TestCirculo que cree una instancia de “Circulo”, muestre su estado, lo haga crecer 27 veces, averigüe su área, 
+     lo haga decrecer 10 veces y muestre su estado final.
+
+  4. Modifica la clase Círculo para que cuando el radio se convierta a 0 el círculo reaccione y diga con una caja de texto gráfica 
+     “Soy un mísero punto sin área” usando la clase JOptionPane del paquete javax.swing. Podéis ver este vídeo: https://youtu.be/F_48qh3BcDs
+     
+   * @author AJFRU
    *
    */
 
   public class Circulo {
     
+    // creamos los atributos
     
-    //Atributos.
     private double radio;
-    private double area;
     
-    //Métodos.
+    // creamos el constructor
     
-    /**
-     * Método constructor de la clase.
-     * @param r
-     */
-    
-    public Circulo(double r) {
-      this.radio = r;
+    public Circulo (double radio)  {
+      this.radio = radio;
     }
 
-    /**
-     * Getter del radio.
-     * @return radio
-     */
+    
+    
+    // getters y setters
     
     public double getRadio() {
       return radio;
     }
+
+    public void setRadio(double radio)  {
+        this.radio = radio;
+   
+    }
+    
+    // Metodos
     
     /**
-     * Setter del radio.
-     * @param radio
-     */
-
-    public void setRadio(double radio) {
-      this.radio = radio;
-    }
-    
-    public double getArea() {
-      return (Math.PI*(Math.pow(this.radio, 2)));
-    }
-
-    //public void setArea(double area) {
-      //this.area = area;
-    //}
-
-    /**
-     * 
-     * @param r2
-     * @return
+     * Método para mostrar el radio del circulo
      */
     
-    public double creceRadio(double r2) {
-      if (this.radio < 0) {  
-        System.out.println("El radio no puede ser negativo.");
-
-      } else if (radio == 0){
-        String error = JOptionPane.showInputDialog("Soy un misero punto sin area");
-      } else {
-
-      }
-        return this.radio = radio  * r2;
-    }
-    
-    
-    /**
-     * 
-     * @param r2
-     * @return
-     */
-    
-    public double decrementaRadio(double r2) {
-
-      if (this.radio < 0) {  
-        System.out.println("El radio no puede ser negativo.");
-
-      } else if (radio == 0){
-        String error = JOptionPane.showInputDialog("Soy un misero punto sin area");
-      } else {
-
-      }
-        return this.radio = radio -r2;
-    }
-    
-//    /**
-//     * Cálculo del área del círculo.
-//     * @return
-//     */
-    
-    public double area() {
-     return (Math.PI*(Math.pow(this.radio, 2)));
-   }
-
     @Override
     public String toString() {
-      return "Soy un círculo de radio " +getRadio()+ " metros. Ocupo un área de "+area()+ " metros cuadrados.";
+      return "Soy un circulo de radio " + this.getRadio() + " metros. Ocupo un área de " + this.area() + " metros cuadrados";
     }
     
+    /**
+     * Método para  aumentar su radio
+     * @param tamanio
+     * @return
+     */
+    
+    public double crece(double tamanio) {
+      if(this.radio < 0) {
+        System.out.println("El radio no puede ser negativo");
+        System.exit(1);
+        
+      }else if (this.radio == 0) {
+        JOptionPane.showMessageDialog(null, "Soy un mísero punto sin área");
+        }
+      
+      
+      return this.radio = radio * tamanio;
+      
+    }
+    
+      
+
+    
+    /**
+     * Método para decrementar su radio.
+     * @param tamanio
+     * @return
+     */
+    
+    public double mengua(double tamanio) {
+      if(this.radio < 0) {
+        System.out.println("El radio no puede ser negativo");
+        System.exit(1);
+        
+      }else if (this.radio == 0) {
+        JOptionPane.showMessageDialog(null, "Soy un mísero punto sin área");
+        }
+      
+      
+      return this.radio = radio - tamanio;
+      
+    }
+    
+    /**
+     * Método para calcular el área del circulo
+     * @return
+     */
+    
+    public double  area() {
+      return Math.PI * Math.pow(this.radio, 2);
+    }
+    
+    /**
+     * Método para comprobar que el radio introducido sea correcto
+     * @return true si es mayor que 0 y false si es menor que 0
+     */
+    
+    public static boolean radioCorrecto(double radio) {
+      if (radio < 0) {
+        return false;
+      }
+      return true;
+    }
+
   }
 
 

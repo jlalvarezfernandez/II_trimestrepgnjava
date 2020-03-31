@@ -1,174 +1,171 @@
 package rectangulo;
 
+
 /**
- * Creamos la clase cuadrado
- * 
- * @author José Luis Álvarez Fernández
+ *  Esta clase representa objetos de tipo rectangulO:
+ *  
+ *  Atributos: base y altura
+ *  
+ *  Acciones: calculo del perimetro
+ *            calculo del area
+ *            saber si es igual a otro rectangulo
+ *            dibujar
+ *            comparar
+ *            
+ *  Necesitaremos métodos para saber el número de rectángulos que hemos creado
+ *  necesitamos un metodo para comprobar si la base y altura son correctas ( que no sean mayor de 10)
+ *            
+ *                                              
+ * @author JOSÉ LUIS ÁLVAREZ FERNÁNDEZ
  *
  */
-
-// Creamos la calse rectangulo
-
 public class Rectangulo {
   
-  // constantes
-  public static int LADOMAXIMO = 10;
-  public static int NUMCREADOS = 0;
+  // definimos dos variables estáticas para otros calcular otros métodos
   
-  // definimos los atributos
+  public static int LADOMAXIMO = 10;
+  public static int NUMRECTANGULOSCREADOS = 0;
+  
+  // definimos los atributos de la clase rectángulo
   
   private int base;
   private int altura;
   
-  /**
-   * Creamos el constructor
-   * @param base
-   * @param altura
-   */
+  // creamos el constructor para la clase rectángulo
   
-  
-  public Rectangulo (int base, int altura) {
-    this.base = base;
-    this.altura = altura;
-    Rectangulo.NUMCREADOS +=1;
+  public Rectangulo(int base, int altura) {
+    
+    
+    // aqui vamos a comprobar que los objetos creados cumplan con que su base o altura sean correctas
+    if (Rectangulo.esLadoCorrecto(base) && Rectangulo.esLadoCorrecto(altura)) {
+      this.base = base;
+      this.altura = altura;
+      
+    }else {
+      System.out.println("Error al introducir los datos");
+
+    }
+   
+    // para saber el número de rectángulos que hemos creado debemos ahcerlo en el cosntructor, que es donde creamos los objetos
+    NUMRECTANGULOSCREADOS += 1;
     
   }
   
-  // Creamos los getters, son los observadores, nos devuelven el valor de los atributos
-  /**
-   * Creamos el método getter para la base
-   * @return
-   */
+  // creamos los metodos getters (observadores) y setters (modificadores) para los atributos de la clase rectángulo
+  
   public int getBase() {
-    return this.base;
+    return base;
   }
-  /**
-   * Creamos el método getter para la altura
-   * @return
-   */
-  
-  public int getAltura() {
-    return this.altura;
-  }
-  
-  // Creamos los setters, son los modificadores (nos permiten cambiar los valores)
-  /**
-   * Creamos el método setter para la base
-   * @param base
-   */
-  public void setBase(int value) {
-    if (Rectangulo.esLadoCorrecto(value)) {
+
+  public void setBase(int base) {
+    
       this.base = base;
-    } else {
-      System.out.println("ERROR!!!, base incorrecta");
-    }
+    
+  }
+
+  public int getAltura() {
+    return altura;
+  }
+
+  public void setAltura(int altura) {
+    
+      this.altura = altura;
    
   }
-  /**
-   * Creamos el método setter para la altura
-   * @param altura
-   */
-  public void setAltura (int value) {
-    if (Rectangulo.esLadoCorrecto(value)) {
-      this.altura = altura;
-    } else {
-      System.out.println("ERROR!!!, base incorrecta");
-    }
-  }
   
-  /**
-   * Método estatico que cuenta el número de rectangulos creados
-   * @return
-   */
+  // Método toString para mostrar el objeto de la clase rectángulo como una cadena
   
-  public static int numRectangulos() {
-    return Rectangulo.NUMCREADOS;
-  }
-  
-  /**
-   * Método estatico para comprobar que el lado sea correcto
-   * @param value
-   * @return
-   */
-  
-  public static boolean esLadoCorrecto(int value) {
-    return value < 0 && value <=Rectangulo.LADOMAXIMO;
-  }
-  
-  /**
-   * Creamos el método toString para obtener la cadena fromateada 
-   */
-  
+  @Override
   public String toString() {
-    return this.base + "," + this.altura;
+    return "[" + base + "," + altura + "]";
   }
   
+  // Método para dibujar los rectángulos 
+  
   /**
-   * Creamos el método perimetro para calcular el perimetro del rectangulo
-   * @return
+   * Método apra dibujar rectángulos con un for que recorre la altura y otro for dentro del anterior que recorre la base
+   * devolvemos los asteriscos por cada iteracion de la altura y base
+   * @return dibuja
    */
   
-  public int perimetro() {
+  public String dibujaRectangulo() {
+    String dibuja = "";
+    for (int i = 0; i < this.altura; i++) {
+      
+      for (int j = 0; j < this.base; j++) {
+        dibuja += "*" ;
+      }
+      dibuja += "\n" ;
+    }
+    return dibuja;
+  }
+  
+  // Método para calcular el perímetro
+  /**
+   * Método para calcular el perímetro de los rectángulos
+   * El perímetro se clacula multiplicando por 2 la base + la altura
+   * 
+   * @return perimetro
+   */
+  
+  public int calculaPerimetro() {
     return 2 * (this.base + this.altura);
   }
+  
+  // Método para clacular el área
+  
   /**
-   * Creamos el método para calcular el area del rectangulo
+   * Método apra calcular el área de los rectángulos
+   * El área se cañculo multiplicando la base * la altura
    * @return
    */
   
-  public int area() {
+  public int calculaArea() {
     return (this.base * this.altura);
   }
+  
+  // Método para comparar los rectángulos
   /**
-   * Método para comparar 2 rectangulos dadas sus areas
+   *  Método para comparar rectángulos
+   *  Para saber si dos rectángulos son iguales debemos comprobar sus áreas
+   * Asi pues, las restaremos:
    * @param otroRectangulo
    * @return
+   *        si el numero resultante es 0 significa que son iguale
+   *        si el número resultante es mayor que 0 significa que el primer rectámgulo es mayor que el primero
+   *        si el número resultante es mayor que 0 significa que el primer rectángulo es menor que el segundo
    */
   
   public int comparaRectangulos(Rectangulo otroRectangulo) {
-    return (this.area()- otroRectangulo.area());
+    return this.calculaArea() - otroRectangulo.calculaArea();
   }
   
+  // Método para saber si los rectángulos son gemelos
+  
   /**
-   * Metodo para saber si 2 rectangulos son igales dadas su altura y base
+   * Método para saber si dos rectángulos son gemelos
+   * Para saber si lo son tenemos que comparar la base y altura de cada uno
    * @param otroRectangulo
-   * @return
+   * @return true si son iguales o false si no lo son
    */
   
-  public boolean esGemelo (Rectangulo otroRectangulo) {
-    return this.base == otroRectangulo.base && this.altura == otroRectangulo.altura;
+  public boolean esGemelo(Rectangulo otroRectangulo) {
+    if ((this.base == otroRectangulo.base && this.altura == otroRectangulo.altura)) {
+    return true;
+  }
+    return false;
   }
   
+  // Método estático para saber si el lado de los rectangulos es correcto 
   /**
-   * Método para mostrar y dibujar el rectangulo
+   * Método estático para saber si la base o altura del rectangulo es correcta
+   * @param valor
+   * @return será verdadera si es mayor que 0 y mnor o igual a 10
    */
   
-  public void mostrar() {
-    String str = "";
-    for (int i= 0; i <= this.base; i++) {
-      for (int j = 0; j <= this.altura; j++) {
-        str += "*";
-      }
-      
-    }
-   
+  public static boolean esLadoCorrecto(int valor) {
+    return valor > 0 && valor <= Rectangulo.LADOMAXIMO;
     
   }
-  
- 
-  
-  
-  
- 
-  
-  
-   
-
-
-
-  
-  
-  
-  
 
 }

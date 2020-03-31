@@ -47,7 +47,7 @@ public class Fraccion {
    * @return
    */
   
-  public int getNumerador() {
+  public double getNumerador() {
     return this.numerador;
   }
   
@@ -57,7 +57,7 @@ public class Fraccion {
    */
   
   public int getDenominador() {
-    return this.denominador;
+    return (int) this.denominador;
   }
   
   // Creamos los setters, son los modificadores (nos permiten cambiar los valores)
@@ -103,8 +103,8 @@ public class Fraccion {
    * @return
    */
   
-  public int resultadoReal() {
-    return this.numerador / this.denominador;
+  public double resultadoReal() {
+    return (double) this.numerador / this.denominador;
   }
  
   
@@ -160,9 +160,9 @@ public class Fraccion {
    * @return
    */
   
-  public int maximoComunDivisor() {
-    int dividendo = this.numerador;
-    int divisor = this.denominador;
+  public double maximoComunDivisor() {
+    int dividendo = (int) this.numerador;
+    int divisor = (int) this.denominador;
     int resto = dividendo % divisor;
     int mcd = 0;
     
@@ -180,7 +180,7 @@ public class Fraccion {
   */
   void simplifica() {
     int mcd;
-    mcd = this.maximoComunDivisor();
+    mcd = (int) this.maximoComunDivisor();
     this.numerador /= mcd;
     this.denominador /= mcd;
   }
