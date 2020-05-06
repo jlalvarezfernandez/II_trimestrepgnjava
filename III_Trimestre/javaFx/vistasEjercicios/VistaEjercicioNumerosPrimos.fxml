@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane hgap="10.0" style="-fx-background-color: F7FF97;" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoresEjercicios.ControladorNumerosPrimos">
+   <children>
+      <Label nodeOrientation="LEFT_TO_RIGHT" text="Introduce la cantidad de números primos a mostrar: " textAlignment="CENTER">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></Label>
+      <TextField fx:id="numerosAMostrar" style="-fx-background-color: EDFFFF;" GridPane.columnIndex="1" />
+      <Button defaultButton="true" mnemonicParsing="false" onAction="#calcular" style="-fx-background-color: CCFF71;" text="Calcular" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <opaqueInsets>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <DisplacementMap>
+               <mapData>
+                  <FloatMap />
+               </mapData>
+            </DisplacementMap>
+         </effect></Button>
+      <Label text="Resultado: " GridPane.rowIndex="2">
+         <cursor>
+            <Cursor fx:constant="SW_RESIZE" />
+         </cursor>
+         <effect>
+            <SepiaTone />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font></Label>
+      <TextArea fx:id="resultado" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B9FFFB;" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>

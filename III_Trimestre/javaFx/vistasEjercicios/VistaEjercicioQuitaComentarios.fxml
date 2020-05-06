@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoresEjercicios.ControladorEjercicioQuitaComentarios">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="QUITA COMENTARIOS" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin></Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Elige el archivo" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#quitaComentarios" text="Abrir" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      <TextArea fx:id="resultado" editable="false" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="113.0" minWidth="85.0" prefWidth="113.0" />
+      <ColumnConstraints maxWidth="241.0" minWidth="213.0" prefWidth="213.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

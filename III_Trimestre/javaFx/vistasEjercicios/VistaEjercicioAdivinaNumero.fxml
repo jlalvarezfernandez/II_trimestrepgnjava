@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoresEjercicios.ControladorAdivinaNumero">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <Label text="PROGRAMA PARA ADIVINAR EL NÚMERO SECRETO" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" />
+      <Label text="Introduce un número entre el 0 y el 100:" GridPane.rowIndex="1" />
+      <TextField fx:id="numIntroducido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button defaultButton="true" mnemonicParsing="false" onAction="#comprobar" text="Comprobar" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Label text="Intentos restantes" GridPane.rowIndex="6" />
+      <TextField fx:id="intentosRestantes" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Label text="Pista" GridPane.rowIndex="3" />
+      <TextArea fx:id="pista" editable="false" prefHeight="123.0" prefWidth="370.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <Label text="EUREKA has acertado:" GridPane.rowIndex="7" />
+      <TextField fx:id="eureka" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <Label text="Intentos:" GridPane.rowIndex="5" />
+      <TextField fx:id="noAcertaste" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
