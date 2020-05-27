@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane hgap="10.0" prefHeight="335.0" prefWidth="531.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladoresEjercicios.ControladorEjercicioDesencripta">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <Label text="Texto encriptado metodo Cesar" GridPane.halignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin></Label>
+      <TextArea fx:id="textoEncriptado" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="3">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </TextArea>
+      <Button fx:id="btnCargar" mnemonicParsing="false" onAction="#cargar" text="Cargar Fichero" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </Button>
+      <Label text="clave" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </Label>
+      <TextField fx:id="clave" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Slider fx:id="slider" blockIncrement="1.0" majorTickUnit="65.0" max="65.0" min="-65.0" minorTickCount="1" prefHeight="57.0" prefWidth="82.0" showTickLabels="true" value="1.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </Slider>
+      <Button fx:id="btnDesencripta" mnemonicParsing="false" onAction="#desencripta" text="Desencripta" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </padding>
+      </Button>
+      <Label text="Texto Desencriptado" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+      <TextArea fx:id="textoDesencriptado" editable="false" layoutX="20.0" layoutY="47.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="3">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </TextArea>
+      <Button fx:id="btnGuardar" layoutX="62.0" layoutY="267.0" mnemonicParsing="false" onAction="#guarda" text="Guarda fichero" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnMenor" mnemonicParsing="false" onAction="#menor" text="&lt;" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="btnMayor" layoutX="230.0" layoutY="283.0" mnemonicParsing="false" onAction="#mayor" text="&gt;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="201.0" minWidth="182.0" prefWidth="182.0" />
+      <ColumnConstraints maxWidth="141.0" minWidth="79.0" prefWidth="119.0" />
+      <ColumnConstraints maxWidth="207.0" minWidth="189.0" prefWidth="190.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="107.0" />
+      <RowConstraints maxHeight="194.0" minHeight="23.0" prefHeight="42.0" />
+      <RowConstraints maxHeight="125.0" minHeight="38.0" prefHeight="50.0" />
+      <RowConstraints maxHeight="92.0" minHeight="24.0" prefHeight="24.0" />
+      <RowConstraints maxHeight="81.0" minHeight="36.0" prefHeight="61.0" />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
