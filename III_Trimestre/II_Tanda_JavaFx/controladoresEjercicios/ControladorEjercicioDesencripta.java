@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -47,20 +48,17 @@ public class ControladorEjercicioDesencripta implements Initializable{
   private Button btnGuardar;
 	@FXML
   private Button btnDesencripta;
+	
+	
 
 	
 	 @Override
 	  public void initialize(URL location, ResourceBundle resources) {
 	    clave.setAlignment(Pos.CENTER);
 	    clave.setText(posicion + "");
-	    
-	    
 	    slider.valueProperty().addListener((observable, oldValue, newValue) ->  {
 	      clave.setText(Integer.toString(slider.valueProperty().getValue().intValue()));
 	    });
-	    
-	    
-	    
 	  }
 	 
 
@@ -91,75 +89,37 @@ public class ControladorEjercicioDesencripta implements Initializable{
 	// Event Listener on Button.onAction
 	@FXML
 	public void desencripta(ActionEvent event) {
-	  try {
-      BufferedReader fichero1 = new BufferedReader(new FileReader(archivo));
-      ArrayList<String> lineasOrigen = new ArrayList<String>();
+	 
+    try {
+      BufferedReader fichero = new BufferedReader(new FileReader(archivo));
       String linea;
-      while ((linea=fichero1.readLine()) != null) {
-        textoDesencriptado.setText(textoDesencriptado.getText()+ linea + "\n");
+      while ((linea=fichero.readLine()) != null) {
+        textoDesencriptado.setText(textoDesencriptado.getText() + DesencriptaMetodoCesar.desencriptaCesar(linea, Integer.parseInt(clave.getText())) + "\n"); 
       }
-
-      fichero1.close();
-      int desplazamiento = Integer.parseInt(clave.getText());
-      if (event.getSource().equals(btnCargar)) {
-        textoDesencriptado.setText("");
-        for (String l : lineasOrigen) {
-          textoDesencriptado.setText(textoDesencriptado.getText()+ desencriptaCesar(l, desplazamiento)+ "\n");
-          
-        }
-      } else if (event.getSource().equals(btnGuardar)) {
-        BufferedWriter ficheroDestino = new BufferedWriter(new FileWriter(archivo));
-        
-        for (String lineas : lineasOrigen ) {
-          ficheroDestino.write(desencriptaCesar(lineas, desplazamiento));
-          ficheroDestino.newLine();
-          
-          
-          
-        }
-      }
-
-    } catch (Exception e) {
-      System.err.println("Error, no se ha podido abrir el fichero");
-    } 
+    } catch (Exception e){
+      System.out.println("Error en el fichero");
+    }
 	}
 	// Event Listener on Button.onAction
 	@FXML
-	public void guarda(ActionEvent event) {
-	  
-    
-    FileChooser file1 = new FileChooser();
-    file1.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
-
-    file1.setTitle("Abriendo fichero 1");
-    Window stage = null;
+	public void guarda(ActionEvent event) throws IOException {
+	  FileChooser file1 = new FileChooser();
+	  file1.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+	  file1.setTitle("Abriendo fichero 1");
+	  Window stage = null;
     File f = file1.showSaveDialog(stage);
-    archivo = f.getPath();
-
-	  
-//	  FileChooser file1 = new FileChooser();
-//    file1.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
-//    
-//    file1.setTitle("Abriendo fichero 1");
-//    Window stage = null;
-//    File f = file1.showSaveDialog(stage);
-//    archivo = f.getPath();
     try {
-      BufferedReader fichero1 = new BufferedReader(new FileReader(archivo));
-      
-      String linea;
-      while ((linea=fichero1.readLine()) != null) {
-        textoDesencriptado.setText(textoDesencriptado.getText()+ linea + "\n");
-      }
+      BufferedWriter ficheroGuardador = new BufferedWriter(new FileWriter(f.getAbsolutePath()));
+      ficheroGuardador.write(textoDesencriptado.getText());
+      ficheroGuardador.close();
 
-
-      fichero1.close();
-
-    } catch (Exception e) {
-      System.err.println("Error, no se ha podido abrir el fichero");
-    }    
-    
+    } catch (Exception e){
+      System.out.println("Error en el fichero");
+    }
 	}
+	  
+    
+
 	// Event Listener on Button.onAction
 	@FXML
 	public void menor(ActionEvent event) {
