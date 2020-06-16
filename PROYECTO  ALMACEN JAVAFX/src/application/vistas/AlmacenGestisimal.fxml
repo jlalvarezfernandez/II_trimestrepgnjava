@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="421.0" prefWidth="577.0" style="-fx-background-color: C8C5C5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.vistas.AlmacenGestisimalControllerBis">
+   <children>
+      <MenuBar style="-fx-border-color: black;">
+        <menus>
+          <Menu fx:id="menuArticulo" mnemonicParsing="false" onShown="#informacion" text="_Almacén">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#altaArticulo" text="Alta">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#bajaArticulo" text="Baja">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/trash.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#modificaArticulo" text="Modificación">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/pencil%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#entradaMercancia" text="Entrada de Mercancia">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/login.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#salidaMercancia" text="Salida de Mercancia">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#pedidoAutomatico" text="Pedido Automático">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/mode.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="salir" mnemonicParsing="false" onAction="#salirApp" text="Salir">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/exit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+            </items>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0">
+                     <image>
+                        <Image url="@../imagenesApp/software.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Menu>
+          <Menu fx:id="menuListado" mnemonicParsing="false" onShown="#informacion" text="_Listado">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#ListaColectiva" text="Formato Lista">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/checklist.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#ListaIndividual" text="Formato Individual">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/article.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+            </items>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0">
+                     <image>
+                        <Image url="@../imagenesApp/tools-and-utensils.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Menu>
+          <Menu fx:id="menuHerramientas" mnemonicParsing="false" onShown="#informacion" text="_Herramientas">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0">
+                     <image>
+                        <Image url="@../imagenesApp/tools-and-utensils%20(1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#ExportaFicheros" text="Exporta fichero">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/arrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#ImportaFicheros" text="Importa fichero">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../imagenesApp/ui.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+               </items>
+          </Menu>
+            <Menu fx:id="menuContacto" mnemonicParsing="false" onShown="#informacion" text="_Contacto">
+               <items>
+                  <Menu mnemonicParsing="false" text="Información Autores">
+                     <items>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#GitHubJoseluis" text="José Luis Álvarez">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0">
+                                 <image>
+                                    <Image url="@../imagenesApp/foto.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#GitHubCurro" text="Francisco Javier Campos">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0">
+                                 <image>
+                                    <Image url="@../imagenesApp/foto_carne-reducida-169x300.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#GitHubAntonio" text="Antonio Quesada">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0">
+                                 <image>
+                                    <Image url="@../imagenesApp/Antonio.jpeg" />
+                                 </image>
+                              </ImageView>
+                           </graphic></MenuItem>
+                     </items>
+                  </Menu>
+               </items>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0">
+                     <image>
+                        <Image url="@../imagenesApp/computer.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Menu>
+        </menus>
+         <contextMenu>
+            <ContextMenu fx:id="menuContextual">
+              <items>
+                <MenuItem fx:id="repositorio" mnemonicParsing="false" onAction="#irRepositorio" text="ir a repositorio Github" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </MenuBar>
+      <AnchorPane prefHeight="383.0" prefWidth="579.0" style="-fx-background-color: C8C5C5; -fx-border-color: black;">
+         <children>
+            <Text layoutX="188.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GESTISIMAL" AnchorPane.bottomAnchor="301.33203125" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="190.1171875" AnchorPane.topAnchor="14.18359375">
+               <font>
+                  <Font name="Arial Black" size="28.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="331.0" fitWidth="602.0" layoutX="-9.0" layoutY="55.0" style="-fx-border-color: black;">
+               <image>
+                  <Image url="@../imagenesApp/alamcen.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Text fx:id="descripcion" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-border-color: black;" wrappingWidth="564.13671875" />
+   </children>
+</VBox>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="472.0" prefWidth="770.0" style="-fx-background-color: #7fb5b5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.vistas.ListaColectivaController">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <Button fx:id="btnCancelar" layoutX="717.0" layoutY="419.0" mnemonicParsing="false" onAction="#salir" style="-fx-border-color: black;" text="SALIR">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../imagenesApp/logout%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="571.0" layoutY="419.0" mnemonicParsing="false" onAction="#cambiarVista" style="-fx-border-color: black;" text="CAMBIAR VISTA">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../imagenesApp/change.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TableView fx:id="tableArticulo" layoutX="66.0" layoutY="37.0" prefHeight="362.0" prefWidth="742.0" style="-fx-border-color: black; -fx-background-color: A7E8E3;">
+        <columns>
+          <TableColumn fx:id="colCodigo" minWidth="-1.0" prefWidth="69.0" text="CÓDIGO" />
+          <TableColumn fx:id="colDescripcion" minWidth="-1.0" prefWidth="92.0" text="DESCRIPCIÓN" />
+            <TableColumn prefWidth="75.0" text="PRECIO">
+               <columns>
+                  <TableColumn fx:id="colPrecioC" minWidth="-1.0" prefWidth="106.0" text="COMPRA" />
+                  <TableColumn fx:id="colPrecioV" minWidth="-1.0" prefWidth="90.0" text="VENTA" />
+               </columns>
+            </TableColumn>
+            <TableColumn fx:id="colUnidades" minWidth="-1.0" prefWidth="196.0" text="UNIDADES" />
+            <TableColumn fx:id="colIva" minWidth="-1.0" prefWidth="196.0" text="IVA" />
+            <TableColumn fx:id="colStockMinimo" minWidth="-1.0" prefWidth="196.0" text="STOCK MÍNIMO" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onAction="#modificaArticulo" prefHeight="25.0" prefWidth="31.0" style="-fx-border-color: black;">
+         <tooltip>
+            <Tooltip text="Modificar un artículo" />
+         </tooltip>
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../imagenesApp/pencil%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="14.0" layoutY="116.0" mnemonicParsing="false" onAction="#altaArticulo" prefHeight="25.0" prefWidth="31.0" style="-fx-border-color: black;">
+         <tooltip>
+            <Tooltip text="Añadir un artículo" />
+         </tooltip>
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../imagenesApp/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="14.0" layoutY="156.0" mnemonicParsing="false" onAction="#bajaArticulo" prefHeight="25.0" prefWidth="31.0" style="-fx-border-color: black;">
+         <tooltip>
+            <Tooltip text="Dar de baja un artículo" />
+         </tooltip>
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../imagenesApp/trash.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
