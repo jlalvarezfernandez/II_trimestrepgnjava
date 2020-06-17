@@ -93,19 +93,17 @@ public class ListaIndividualController implements Initializable{
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    ArrayList<Articulo> lista = new ArrayList<Articulo>();
+    ArrayList<Articulo> lista = new ArrayList<Articulo>();  
 
     for (Articulo articulo : almacen) {
       lista.add(articulo);
     }
+    
 
     // establecemos los tipos de iva
     tipoIvaModifica.getItems().addAll("GENERAL", "REDUCIDO", "SUPERREDUCIDO");
     
-    
-
     // asi hacemos que la primera ventana que se abra corresponde al articulo con código número 1
-
 
     codigoArticulo.setText(lista.get(0).getCodigo() + "");
     descripcionModifica.setText(lista.get(0).getDescripcion());
@@ -128,6 +126,20 @@ public class ListaIndividualController implements Initializable{
 
     SpinnerValueFactory<Integer> spinnerStock = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, lista.get(0).getStockMin());
     spinnerStockMin.setValueFactory(spinnerStock);
+    
+    if (codigo == 0) {
+      codigo = lista.get(0).getCodigo();
+      String imagenInicial = "articulo000" + codigo + ".png";
+      String rutaArticulo = ("C:/Users/Gestisimal/"  + imagenInicial);
+      Image img = null;
+      try {
+        img = new Image(new FileInputStream("C:/Users/Gestisimal/" + imagenInicial));
+      } catch (FileNotFoundException e) {
+        // TODO Bloque catch generado automáticamente
+        e.printStackTrace();
+      }
+      imagen.setImage(img);
+    }
 
   }
   /**
